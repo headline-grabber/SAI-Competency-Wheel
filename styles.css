@@ -1,0 +1,33 @@
+/* styles.css */
+
+/* Centered description text */
+#description {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Link styles */
+#description a {
+  color: #0066cc; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+#description a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Add a horizontal line under the description */
+hr {
+  margin: 10px auto;
+  width: 80%;
+  border: 1px solid #ccc;
+}
+
+/* Ensures pie chart container is centered */
+#pie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
