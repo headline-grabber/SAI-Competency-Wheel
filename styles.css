@@ -30,4 +30,11 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  width: 100%; /* Optional: to ensure the container takes full width */
 }
+
+#scrollable-content {
+  display: inline-block; /* Ensures the content stays on a single line */
+}
+
