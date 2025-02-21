@@ -16,7 +16,12 @@ const data = [
     { category: 'Knowledge', name: 'Commercial awareness' }
 ];
 
-const width = 800, height = 800, radius = Math.min(width, height) / 2;
+// Internal dimensions for drawing/export
+const internalWidth = 900, internalHeight = 900;
+// Display dimensions (smaller)
+const displayWidth = 400, displayHeight = 400;
+
+const radius = Math.min(internalWidth, internalHeight) / 2 -10;
 
 // Define your color values
 const colors = {
@@ -32,10 +37,12 @@ const colorOptions = [colors.light, colors.mid, colors.bright, colors.dark];
 d3.select("body").style("background", "white");
 
 const svg = d3.select("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("viewBox", `0 0 ${internalWidth} ${internalHeight}`)
+    .attr("width", displayWidth)
+    .attr("height", displayHeight)
     .append("g")
-    .attr("transform", `translate(${width/2}, ${height/2})`);
+    .attr("transform", `translate(${internalWidth/2}, ${internalHeight/2})`);
+
 
 // Add padAngle to create small gaps between slices
 const pie = d3.pie().value(1).padAngle(0.02);
@@ -46,7 +53,7 @@ const arc = d3.arc()
     .outerRadius(radius - 55)
     .cornerRadius(2);
 
-const categoryArc = d3.arc().innerRadius(radius - 50).outerRadius(radius);
+const categoryArc = d3.arc().innerRadius(radius - 50).outerRadius(radius+10);
 
 // Create slices (one for each data item)
 const slices = svg.selectAll(".slice")
@@ -77,7 +84,7 @@ slices.append("text")
     })
     .attr("text-anchor", "middle")
     .attr("fill", "white")
-    .attr("font-size", "24px")
+    .attr("font-size", "26px")
     .attr("dy", "0.35em")
     .text(d => d.data.name);
 
