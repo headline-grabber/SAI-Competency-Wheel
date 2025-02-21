@@ -19,7 +19,7 @@ const data = [
 // Internal dimensions for drawing/export
 const internalWidth = 900, internalHeight = 900;
 // Display dimensions (smaller)
-const displayWidth = 400, displayHeight = 400;
+const displayWidth = 500, displayHeight = 500;
 
 const radius = Math.min(internalWidth, internalHeight) / 2 -10;
 
